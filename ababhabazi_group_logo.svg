@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ababhabazi_group_logo.svg - simple icon + wordmark in navy and gold -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 160" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">AbaBhabazi Group logo</title>
+  <desc id="logoDesc">A stylised bread icon in gold with a navy wordmark reading AbaBhabazi Group.</desc>
+
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0" stop-color="#f6b400"/>
+      <stop offset="1" stop-color="#d99500"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Icon: gold circle with a simple bread silhouette -->
+  <g transform="translate(28,20)">
+    <circle cx="52" cy="52" r="52" fill="url(#g1)" />
+
+    <!-- bread shape -->
+    <path d="M18 76c6-24 22-36 34-36s28 12 34 36H18z" fill="#071d35" opacity="0.96"/>
+    <!-- scoring lines on loaf -->
+    <path d="M31 64c6-6 12-6 18 0" stroke="#f6b400" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.95"/>
+    <path d="M41 58c6-6 12-6 18 0" stroke="#f6b400" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.9"/>
+  </g>
+
+  <!-- Wordmark -->
+  <g transform="translate(140,48)">
+    <text x="0" y="0" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="38" fill="#071d35">AbaBhabazi</text>
+    <text x="0" y="40" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="20" fill="#071d35">Group</text>
+
+    <!-- small gold accent dot -->
+    <circle cx="220" cy="-6" r="7" fill="#f6b400" />
+  </g>
+</svg>
