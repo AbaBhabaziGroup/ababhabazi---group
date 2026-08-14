@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AbaBhabazi Group | Bread Distribution & Delivery</title>
+  <meta name="description" content="AbaBhabazi Group supplies fresh bread to kota shops, spaza shops and restaurants in Osizweni and Madadeni.">
+  <style>
+    :root{
+      --navy:#071d38;
+      --navy2:#0d2d52;
+      --gold:#f7b900;
+      --gold2:#ffcc33;
+      --white:#fff;
+      --light:#f5f7fa;
+      --text:#142033;
+      --muted:#5c6b7d;
+      --border:#dce3eb;
+      --green:#20a95a;
+      --shadow:0 14px 35px rgba(7,29,56,.12);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;color:var(--text);background:var(--light);line-height:1.55}
+    a{text-decoration:none;color:inherit}
+    .topbar{background:var(--navy);color:#fff;padding:10px 5%;font-size:14px}
+    .topbar .wrap{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    .nav{background:#fff;position:sticky;top:0;z-index:50;box-shadow:0 3px 15px rgba(0,0,0,.08)}
+    .nav-inner{max-width:1180px;margin:auto;padding:13px 5%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--navy);font-size:20px}
+    .brand img{width:54px;height:54px;object-fit:contain;display:block}
+    .navlinks{display:flex;gap:24px;font-weight:700;font-size:14px}
+    .navlinks a:hover{color:#c58e00}
+    .hero{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:72px 5% 85px}
+    .hero-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.25fr .75fr;gap:50px;align-items:center}
+    .eyebrow{color:var(--gold2);font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:15px;margin-bottom:16px}
+    h1{font-size:clamp(45px,7vw,78px);line-height:1.02;margin-bottom:22px}
+    h1 span{color:var(--gold)}
+    .hero p{font-size:20px;color:#e6edf5;max-width:700px;margin-bottom:30px}
+    .buttons{display:flex;gap:13px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:15px 24px;border-radius:12px;font-weight:800;border:2px solid transparent;cursor:pointer}
+    .btn-gold{background:var(--gold);color:#111}
+    .btn-outline{border-color:#8ca2bb;color:#fff}
+    .btn-green{background:var(--green);color:#fff}
+    .hero-card{background:#fff;color:var(--text);border-radius:26px;padding:30px;box-shadow:var(--shadow)}
+    .hero-card .big{font-size:64px;font-weight:900;color:var(--gold);line-height:1}
+    .hero-card h3{font-size:24px;margin:8px 0}
+    .hero-card p{color:var(--muted);font-size:16px;margin:0}
+    section{padding:72px 5%}
+    .container{max-width:1180px;margin:auto}
+    .section-head{text-align:center;max-width:780px;margin:0 auto 42px}
+    .section-head h2{font-size:clamp(32px,5vw,48px);color:var(--navy);margin-bottom:10px}
+    .section-head p{font-size:18px;color:var(--muted)}
+    .stats{background:#fff;padding:25px 5%}
+    .stats-grid{max-width:1180px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+    .stat{text-align:center;padding:22px;border-right:1px solid var(--border)}
+    .stat:last-child{border-right:0}
+    .stat strong{display:block;font-size:35px;color:var(--gold);font-weight:900}
+    .stat span{font-weight:800;color:var(--navy)}
+    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .why-card{background:#fff;border-radius:20px;padding:28px;box-shadow:var(--shadow);border:1px solid #edf0f4}
+    .icon{width:50px;height:50px;border-radius:14px;background:#fff3c9;display:flex;align-items:center;justify-content:center;font-size:25px;margin-bottom:15px}
+    .why-card h3{color:var(--navy);margin-bottom:8px;font-size:20px}
+    .why-card p{color:var(--muted)}
+    .how{background:var(--navy);color:#fff}
+    .how .section-head h2{color:#fff}
+    .how .section-head p{color:#dbe5ef}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .step{background:#fff;color:var(--text);border-radius:20px;padding:28px;min-height:225px}
+    .step-number{width:48px;height:48px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px;margin-bottom:18px}
+    .step h3{font-size:20px;color:var(--navy);margin-bottom:8px}
+    .step p{color:var(--muted)}
+    .order-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:30px;align-items:start}
+    .order-info{background:var(--navy);color:#fff;border-radius:25px;padding:35px;position:sticky;top:90px}
+    .order-info h2{font-size:38px;line-height:1.1;margin-bottom:14px}
+    .order-info p{color:#dce7f2;margin-bottom:20px}
+    .price-box{background:#fff;color:var(--text);border-radius:16px;padding:18px;margin:18px 0}
+    .price-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)}
+    .price-row:last-child{border-bottom:0}
+    .price-row strong{color:var(--navy)}
+    .form-card{background:#fff;border-radius:25px;padding:32px;box-shadow:var(--shadow)}
+    .form-card h2{color:var(--navy);font-size:32px;margin-bottom:6px}
+    .form-card .intro{color:var(--muted);margin-bottom:24px}
+    form{display:grid;gap:16px}
+    label{font-weight:800;color:var(--navy);font-size:14px}
+    input,select,textarea{width:100%;padding:14px 15px;border:1px solid #cbd5e1;border-radius:10px;font-size:16px;background:#fff;color:var(--text)}
+    input:focus,select:focus,textarea:focus{outline:3px solid rgba(247,185,0,.25);border-color:var(--gold)}
+    .field{display:grid;gap:7px}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .quantity-row{display:flex;align-items:center;gap:12px}
+    .quantity-row input{max-width:170px}
+    .calc{background:#f7f9fb;border:1px solid var(--border);border-radius:15px;padding:18px;margin-top:2px}
+    .calc-line{display:flex;justify-content:space-between;padding:5px 0}
+    .calc-total{font-size:23px;font-weight:900;color:var(--navy);border-top:2px solid var(--border);margin-top:8px;padding-top:10px}
+    .notice{font-size:13px;color:var(--muted);background:#fff8dc;padding:11px;border-radius:9px}
+    .supplier{background:#fff}
+    .supplier-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .supplier-card{border:1px solid var(--border);border-radius:18px;padding:25px;background:#fff}
+    .supplier-card h3{color:var(--navy);margin-bottom:6px}
+    .faq{background:#eef3f8}
+    details{background:#fff;border-radius:14px;margin-bottom:12px;padding:18px 20px;border:1px solid var(--border)}
+    summary{cursor:pointer;font-weight:800;color:var(--navy)}
+    details p{color:var(--muted);padding-top:10px}
+    .cta{background:var(--gold);padding:55px 5%;text-align:center}
+    .cta h2{font-size:40px;color:#111;margin-bottom:8px}
+    .cta p{margin-bottom:20px}
+    footer{background:#06182d;color:#d9e3ee;padding:45px 5% 25px}
+    .footer-grid{max-width:1180px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}
+    footer h3{color:#fff;margin-bottom:10px}
+    footer p,footer li{font-size:14px;margin:5px 0}
+    footer ul{list-style:none}
+    .copyright{max-width:1180px;margin:30px auto 0;padding-top:18px;border-top:1px solid #29405b;font-size:13px}
+    .whatsapp{position:fixed;right:18px;bottom:18px;width:60px;height:60px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 8px 25px rgba(0,0,0,.25);z-index:100}
+    @media(max-width:850px){
+      .navlinks{display:none}
+      .hero-inner,.order-wrap{grid-template-columns:1fr}
+      .hero{padding-top:50px}
+      .hero-card{max-width:500px}
+      .stats-grid{grid-template-columns:repeat(2,1fr)}
+      .stat:nth-child(2){border-right:0}
+      .why-grid,.steps{grid-template-columns:1fr 1fr}
+      .order-info{position:static}
+      .supplier-grid,.footer-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:560px){
+      section{padding:55px 5%}
+      .topbar .wrap{display:block}
+      .topbar .wrap div{margin:2px 0}
+      .stats-grid{grid-template-columns:1fr 1fr}
+      .stat{padding:15px 8px}
+      .stat strong{font-size:28px}
+      .why-grid,.steps,.two{grid-template-columns:1fr}
+      .form-card,.order-info{padding:24px}
+      .hero p{font-size:18px}
+      h1{font-size:48px}
+      .cta h2{font-size:32px}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <div>📍 Osizweni &amp; Madadeni, Newcastle KZN</div>
+      <div>☎ 069 775 0484 &nbsp; | &nbsp; ✉ banelemlambo629@gmail.com</div>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#home">
+        <img src="Logo.svg" alt="AbaBhabazi Group logo">
+        <span>AbaBhabazi Group</span>
+      </a>
+      <div class="navlinks">
+        <a href="#why">Why Us</a>
+        <a href="#how">How It Works</a>
+        <a href="#order">Order</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a class="btn btn-gold" href="#order">Order Bread</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">Location Courier Services</div>
+          <h1>Fresh bread.<br><span>Delivered on time.</span></h1>
+          <p>AbaBhabazi Group helps kota shops, spaza shops and restaurants in Osizweni and Madadeni keep their shelves and kitchens supplied without repeated shopping trips.</p>
+          <div class="buttons">
+            <a class="btn btn-gold" href="#order">Order Bread</a>
+            <a class="btn btn-outline" href="#why">Why Choose Us</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="big">500+</div>
+          <h3>loaves daily</h3>
+          <p>Built to support reliable local bread distribution, with orders from 15 loaves upward per store.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="stats">
+      <div class="stats-grid">
+        <div class="stat"><strong>500+</strong><span>Loaves Daily</span></div>
+        <div class="stat"><strong>15+</strong><span>Loaves Per Store</span></div>
+        <div class="stat"><strong>R5</strong><span>First Delivery</span></div>
+        <div class="stat"><strong>FREE</strong><span>2nd Same-Day Delivery</span></div>
+      </div>
+    </div>
+
+    <section id="why">
+      <div class="container">
+        <div class="section-head">
+          <h2>Why Kota Shops Choose AbaBhabazi Group</h2>
+          <p>We are built around the daily reality of busy kota businesses: keep bread available, save time and avoid unnecessary trips to the retailer.</p>
+        </div>
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="icon">🚚</div>
+            <h3>We bring it to your store</h3>
+            <p>Instead of leaving your business to buy bread, place your order and let our local delivery service handle the collection and delivery.</p>
+          </div>
+          <div class="why-card">
+            <div class="icon">⏱️</div>
+            <h3>Save valuable time</h3>
+            <p>Your time is better spent serving customers. Our service reduces repeated shopping trips and helps you focus on your kota business.</p>
+          </div>
+          <div class="why-card">
+            <div class="icon">📦</div>
+            <h3>Order what you actually need</h3>
+            <p>There is no need to order in fixed packs. You can order any quantity from 15 loaves upward according to your store's demand.</p>
+          </div>
+          <div class="why-card">
+            <div class="icon">🔁</div>
+            <h3>Free same-day top-up</h3>
+            <p>Need more bread later? Your second delivery on the same day is free, helping busy stores respond to demand.</p>
+          </div>
+          <div class="why-card">
+            <div class="icon">📍</div>
+            <h3>Focused local coverage</h3>
+            <p>We operate in Osizweni and Madadeni, allowing us to build a dependable local delivery route for nearby businesses.</p>
+          </div>
+          <div class="why-card">
+            <div class="icon">📈</div>
+            <h3>Built to grow with your shop</h3>
+            <p>Our daily supply capability is designed to support multiple local stores while keeping ordering simple and convenient.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how" id="how">
+      <div class="container">
+        <div class="section-head">
+          <h2>How It Works</h2>
+          <p>Four straightforward steps from order to store.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Place your order</h3>
+            <p>Enter your store details and the exact number of loaves you need. Any quantity from 15+ is accepted.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>We collect</h3>
+            <p>We collect bread from our supplier points at Osizweni Boxer or Theku Mall Spar.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>We deliver</h3>
+            <p>Your order is routed to your store in Osizweni or Madadeni.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <h3>Need more?</h3>
+            <p>A second delivery to the same store on the same day is free.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="order">
+      <div class="container">
+        <div class="order-wrap">
+          <div class="order-info">
+            <h2>Order Fresh Bread</h2>
+            <p>Tell us what your store needs. The order calculator will work out your bread cost and delivery fee before you send the order.</p>
+            <div class="price-box">
+              <div class="price-row"><span>Bread price</span><strong>R12.00 / loaf</strong></div>
+              <div class="price-row"><span>Minimum order</span><strong>15 loaves</strong></div>
+              <div class="price-row"><span>1st delivery of day</span><strong>R5</strong></div>
+              <div class="price-row"><span>2nd delivery same day</span><strong>FREE</strong></div>
+            </div>
+            <p><strong>Service area:</strong> Osizweni &amp; Madadeni</p>
+          </div>
+
+          <div class="form-card">
+            <h2>Customer Order</h2>
+            <p class="intro">Complete the form. Your order will be prepared as a WhatsApp message for confirmation.</p>
+
+            <form id="orderForm">
+              <div class="two">
+                <div class="field">
+                  <label for="shop">Shop / Kota Restaurant Name *</label>
+                  <input id="shop" name="shop" required placeholder="e.g. Banele Kota">
+                </div>
+                <div class="field">
+                  <label for="contact">Contact Person *</label>
+                  <input id="contact" name="contact" required placeholder="Your name">
+                </div>
+              </div>
+
+              <div class="two">
+                <div class="field">
+                  <label for="phone">Phone Number *</label>
+                  <input id="phone" name="phone" type="tel" required placeholder="e.g. 071 234 5678">
+                </div>
+                <div class="field">
+                  <label for="area">Delivery Area *</label>
+                  <select id="area" name="area" required>
+                    <option value="">Select area</option>
+                    <option>Osizweni</option>
+                    <option>Madadeni</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="address">Store / Delivery Address *</label>
+                <textarea id="address" name="address" rows="3" required placeholder="Street, section, landmark or shop location"></textarea>
+              </div>
+
+              <div class="field">
+                <label for="quantity">Number of Breads *</label>
+                <div class="quantity-row">
+                  <input id="quantity" name="quantity" type="number" min="15" step="1" value="15" required>
+                  <span>loaves or more</span>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="delivery">Delivery Type *</label>
+                <select id="delivery" name="delivery" required>
+                  <option value="First delivery of the day">First delivery of the day — R5</option>
+                  <option value="Second same-day delivery">Second delivery same day — FREE</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="notes">Special Instructions (optional)</label>
+                <textarea id="notes" name="notes" rows="2" placeholder="Preferred delivery time, landmark, etc."></textarea>
+              </div>
+
+              <div class="calc">
+                <div class="calc-line"><span>Bread cost</span><strong id="breadCost">R172.50</strong></div>
+                <div class="calc-line"><span>Delivery</span><strong id="deliveryCost">R5.00</strong></div>
+                <div class="calc-line calc-total"><span>Estimated Total</span><span id="total">R177.50</span></div>
+              </div>
+
+              <div class="notice">Orders are subject to daily stock availability and final confirmation by AbaBhabazi Group.</div>
+
+              <button class="btn btn-green" type="submit">🟢 Send Order on WhatsApp</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="supplier">
+      <div class="container">
+        <div class="section-head">
+          <h2>Our Local Supply Network</h2>
+          <p>We collect bread from established local retail supplier points and bring it directly to your business.</p>
+        </div>
+        <div class="supplier-grid">
+          <div class="supplier-card">
+            <h3>Osizweni Boxer</h3>
+            <p>Local supplier point for daily bread collection.</p>
+          </div>
+          <div class="supplier-card">
+            <h3>Theku Mall Spar</h3>
+            <p>Additional local supplier point supporting our bread distribution service.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <h2>Frequently Asked Questions</h2>
+          <p>Quick answers for new delivery customers.</p>
+        </div>
+        <details>
+          <summary>What is the minimum order?</summary>
+          <p>The minimum order is 15 loaves per store. You can order any whole-number quantity above 15 — for example 16, 23, 37 or 50.</p>
+        </details>
+        <details>
+          <summary>How much is delivery?</summary>
+          <p>The first delivery to a store during the day has a R5 delivery fee. A second delivery to the same store on the same day is free.</p>
+        </details>
+        <details>
+          <summary>Where do you deliver?</summary>
+          <p>Our current service area is Osizweni and Madadeni.</p>
+        </details>
+        <details>
+          <summary>How do I place an order?</summary>
+          <p>Use the order form above. It calculates your estimated total and prepares a WhatsApp order for confirmation.</p>
+        </details>
+        <details>
+          <summary>Can I order more than 500 loaves?</summary>
+          <p>Our stated daily supply capability is 500+ loaves. Larger requirements should be discussed with us in advance so we can confirm stock and route capacity.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <h2>Keep your kota shop supplied.</h2>
+        <p>Order 15+ loaves and let AbaBhabazi Group handle the local delivery.</p>
+        <a class="btn" style="background:#071d38;color:#fff" href="#order">Start Your Order</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h3>AbaBhabazi Group</h3>
+        <p>Location Courier Services | Bread Distribution &amp; Delivery</p>
+        <p>Fresh bread. Delivered on time.</p>
+      </div>
+      <div>
+        <h3>Service Area</h3>
+        <ul>
+          <li>Osizweni</li>
+          <li>Madadeni</li>
+          <li>Newcastle, KZN</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li>069 775 0484</li>
+          <li>banelemlambo629@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 AbaBhabazi Group. All rights reserved.</div>
+  </footer>
+
+  <a class="whatsapp" href="https://wa.me/27697750484" target="_blank" rel="noopener" aria-label="Chat with AbaBhabazi Group on WhatsApp">☏</a>
+
+  <script>
+    const breadPrice = 12.00;
+    const quantity = document.getElementById('quantity');
+    const delivery = document.getElementById('delivery');
+    const breadCost = document.getElementById('breadCost');
+    const deliveryCost = document.getElementById('deliveryCost');
+    const total = document.getElementById('total');
+
+    function money(value) {
+      return 'R' + value.toFixed(2);
+    }
+
+    function updateTotal() {
+      let qty = parseInt(quantity.value || 0, 10);
+      if (qty < 15) qty = 15;
+      quantity.value = qty;
+
+      const bread = qty * breadPrice;
+      const fee = delivery.value === 'Second same-day delivery' ? 0 : 5;
+      breadCost.textContent = money(bread);
+      deliveryCost.textContent = money(fee);
+      total.textContent = money(bread + fee);
+    }
+
+    quantity.addEventListener('input', updateTotal);
+    delivery.addEventListener('change', updateTotal);
+    updateTotal();
+
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const shop = document.getElementById('shop').value.trim();
+      const contact = document.getElementById('contact').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const area = document.getElementById('area').value;
+      const address = document.getElementById('address').value.trim();
+      const qty = Math.max(15, parseInt(quantity.value || 15, 10));
+      const deliveryType = delivery.value;
+      const notes = document.getElementById('notes').value.trim();
+
+      const bread = qty * breadPrice;
+      const fee = deliveryType === 'Second same-day delivery' ? 0 : 5;
+      const grandTotal = bread + fee;
+
+      const message =
+`NEW BREAD ORDER — AbaBhabazi Group
+
+Shop / Kota Restaurant: ${shop}
+Contact Person: ${contact}
+Phone: ${phone}
+Area: ${area}
+Delivery Address: ${address}
+
+Bread Quantity: ${qty} loaves
+Bread Price: R12.00 × ${qty} = ${money(bread)}
+Delivery: ${deliveryType} = ${money(fee)}
+ESTIMATED TOTAL: ${money(grandTotal)}
+${notes ? '\nSpecial Instructions: ' + notes : ''}
+
+Please confirm stock and delivery.`;
+
+      window.open('https://wa.me/27697750484?text=' + encodeURIComponent(message), '_blank');
+    });
+  </script>
+</body>
+</html>
